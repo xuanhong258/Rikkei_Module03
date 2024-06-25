@@ -16,12 +16,35 @@ public class Calculate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         float firstOperand = Float.parseFloat(request.getParameter("firstOperand"));
         float secondOperand = Float.parseFloat(request.getParameter("secondOperand"));
-        String plus = request.getParameter("add");
-        String minus = request.getParameter("minus");
-        String multi = request.getParameter("multi");
-        String div = request.getParameter("div");
-
-
-
+        String operator = request.getParameter("operator");
+        float result;
+        String operatorStr;
+        switch (operator){
+            case "add":
+                result = firstOperand + secondOperand;
+                operatorStr = "+";
+                break;
+            case "minus":
+                result = firstOperand - secondOperand;
+                operatorStr = "-";
+                break;
+            case "div":
+                result = firstOperand / secondOperand;
+                operatorStr = ":";
+                break;
+            case "multi":
+                result = firstOperand * secondOperand;
+                operatorStr = "x";
+                break;
+            default:
+                result = firstOperand % secondOperand;
+                operatorStr = "%";
+                break;
+        }
+        request.setAttribute("result", result);
+        request.setAttribute("firstOperand",firstOperand);
+        request.setAttribute("secondOperand",secondOperand);
+        request.setAttribute("operator",operatorStr);
+        request.getRequestDispatcher("views/calculate.jsp").forward(request, response);
         }
 }

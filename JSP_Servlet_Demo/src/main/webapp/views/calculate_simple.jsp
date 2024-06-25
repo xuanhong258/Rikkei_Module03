@@ -11,17 +11,17 @@
     <title>Simple Calculate</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="<%=request.getContextPath()%>/Calculate" method="post">
         <fieldset>
             <legend>Calculator</legend>
             <label for="firstOperand">First Operand</label>
             <input type="text" id="firstOperand" name="firstOperand"/><br>
             <label>Operator</label>
-            <select>
-                <option value="add" name="add">Addition</option>
-                <option value="minus" name="minus">Minus</option>
-                <option value="multi" name="multi">Multi</option>
-                <option value="div" name="div">Division</option>
+            <select id="operator" name="operator">
+                <option value="add">Addition</option>
+                <option value="minus">Minus</option>
+                <option value="multi">Multi</option>
+                <option value="div">Division</option>
             </select>
             <br>
             <label for="secondOperand">Second Operand</label>

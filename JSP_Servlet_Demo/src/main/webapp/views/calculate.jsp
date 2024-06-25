@@ -12,7 +12,7 @@
 </head>
 <body>
     <p>
-        Result:
+        ${firstOperand} ${operator} ${secondOperand} = ${result}
     </p>
 </body>
 </html>
