@@ -5,5 +5,9 @@ import ra.springmvc_crud.model.Categories;
 import java.util.List;
 
 public interface CategoriesService {
-    public List<Categories> findAll();
+    List<Categories> findAll();
+    boolean createCatalog(Categories catalog);
+    Categories findById(int catalogId);
+    boolean update(Categories catalog);
+    boolean delete(int catalogId);
 }
